@@ -1,16 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import { router } from './routes';
-
-// Cria o servidor express
+//criando servidor express
 const server = express();
-// Configura o servidor para aceitar requisições de outros domínios
+
+//configura o servidor para aceitar requisições de outros dominios
 server.use(cors());
-// Configura o servidor para aceitar requisições no formato JSON
+
+//configura o servidor para aceitar requisições no formato JSON
 server.use(express.json());
 
-// Configurando as rotas no servidor
+//configurando as rotas no servidor
 server.use(router);
 
-// Exporta o servidor
+//exporta o servidor
 export { server };

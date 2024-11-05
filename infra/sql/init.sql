@@ -38,6 +38,7 @@ CREATE TABLE Livro (
     status_livro_emprestado VARCHAR (20)
 );
 
+
 -- CREATE EMPRESTIMO
 CREATE TABLE Emprestimo (
     id_emprestimo SERIAL PRIMARY KEY,
@@ -48,49 +49,96 @@ CREATE TABLE Emprestimo (
     status_emprestimo VARCHAR (20)
 );
 
--- INSERT INTO ALUNO 
-INSERT INTO Aluno (nome, sobrenome, data_nascimento, endereco, email, celular)
-VALUES
-('João', 'Silva', '2000-05-10', 'Rua A, 123', 'joao.silva@gmail.com', '11987654321'),
-('Maria', 'Oliveira', '1998-07-15', 'Rua B, 456', 'maria.oliveira@gmail.com', '11987654322'),
-('Pedro', 'Santos', '1999-08-20', 'Rua C, 789', 'pedro.santos@gmail.com', '11987654323'),
-('Ana', 'Souza', '2001-03-30', 'Rua D, 321', 'ana.souza@gmail.com', '11987654324'),
-('Carlos', 'Ferreira', '1997-12-10', 'Rua E, 654', 'carlos.ferreira@gmail.com', '11987654325'),
-('Juliana', 'Pereira', '2002-02-14', 'Rua F, 987', 'juliana.pereira@gmail.com', '11987654326'),
-('Paulo', 'Costa', '1996-09-18', 'Rua G, 147', 'paulo.costa@gmail.com', '11987654327'),
-('Fernanda', 'Lima', '1995-06-05', 'Rua H, 258', 'fernanda.lima@gmail.com', '11987654328'),
-('Ricardo', 'Melo', '2003-11-25', 'Rua I, 369', 'ricardo.melo@gmail.com', '11987654329'),
-('Carolina', 'Martins', '1994-01-08', 'Rua J, 753', 'carolina.martins@gmail.com', '11987654330');
 
--- INSERT INTO LIVRO 
+-- ALUNO
+INSERT INTO Aluno (nome, sobrenome, data_nascimento, endereco, email, celular) 
+VALUES 
+('Conor', 'McGregor', '2005-01-15', 'Rua UFC, 123', 'mcgregor@ufc.com', '16998959876'),
+('Amanda', 'Nunes', '2004-03-22', 'Rua UFC, 456', 'amanda.nunes@ufc.com', '16995992305'),
+('Angelina', 'Jolie', '2003-07-10', 'Rua Hollywood, 789', 'jolie@cinema.com', '16991915502'),
+('Natalie', 'Portman', '2002-11-05', 'Rua Hollywood, 101', 'natalie.portman@cinema.com', '16993930703'),
+('Shaquille', 'ONeal', '2004-09-18', 'Rua NBA, 202', 'shaquille@gmail.com', '16993937030'),
+('Harry', 'Kane', '2000-05-18', 'Rua Futebol, 2024', 'kane@futi.com', '16998951983'),
+('Jaqueline', 'Carvalho', '2001-12-10', 'Rua Volei, 456', 'jack@volei.com', '16991993575'),
+('Sheilla', 'Castro', '2003-04-25', 'Rua Volei, 2028', 'sheilla.castro@volei.com', '16981974547'),
+('Gabriela', 'Guimarães', '2007-08-19', 'Rua Volei, 2028', 'gaby@volei.com', '16983932215'),
+('Magic', 'Johnson', '2003-07-08', 'Rua NBA, 1999', 'magic@gmail.com', '16993932020');
+
+
+-- ALUNO -- INSIRA 10 ALUNOS 
+INSERT INTO Aluno (nome, sobrenome, data_nascimento, endereco, email, celular) 
+VALUES 
+('Michael', 'Jordan', '2005-01-15', 'Rua Esportes, 123', 'mjordan@nba.com', '11998877665'),
+('Ronda', 'Rousey', '2004-03-22', 'Rua Luta, 456', 'ronda@wwe.com', '11995544332'),
+('Scarlett', 'Johansson', '2003-07-10', 'Rua Cinema, 789', 'scarlett@cinema.com', '11991115504'),
+('Emma', 'Watson', '2002-11-05', 'Rua Magia, 101', 'emma.watson@hogwarts.com', '11993330804'),
+('LeBron', 'James', '2004-09-18', 'Rua NBA, 202', 'lebron@nba.com', '11993337777'),
+('Cristiano', 'Ronaldo', '2000-05-18', 'Rua Futebol, 2024', 'cr7@futebol.com', '11998881983'),
+('Marta', 'Vieira', '2001-12-10', 'Rua Futebol, 456', 'marta@futebol.com', '11992222345'),
+('Simone', 'Biles', '2003-04-25', 'Rua Ginastica, 2028', 'simone@gym.com', '11981234567'),
+('Neymar', 'Junior', '2007-08-19', 'Rua Futebol, 2028', 'neymar@futebol.com', '11983337755'),
+('Kobe', 'Bryant', '2003-07-08', 'Rua NBA, 1999', 'kobe@nba.com', '11993338866');
+
+
+-- LIVRO
+INSERT INTO Livro (titulo, autor, editora, ano_publicacao, isbn, quant_total, quant_disponivel, valor_aquisicao, status_livro_emprestado) 
+VALUES 
+('O Senhor dos Anéis', 'J.R.R. Tolkien', 'HarperCollins', '1954', '978-0007525546', 10, 10, 150.00, 'Disponível'),
+('1984', 'George Orwell', 'Companhia das Letras', '1949', '978-8535906770', 8, 8, 90.00, 'Disponível'),
+('Dom Quixote', 'Miguel de Cervantes', 'Penguin Classics', '1605', '978-0142437230', 6, 6, 120.00, 'Disponível'),
+('O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 'Agir', '1943', '978-8522008731', 12, 12, 50.00, 'Disponível'),
+('A Revolução dos Bichos', 'George Orwell', 'Penguin', '1945', '978-0141036137', 7, 7, 80.00, 'Disponível'),
+('O Hobbit', 'J.R.R. Tolkien', 'HarperCollins', '1937', '978-0007458424', 9, 9, 140.00, 'Disponível'),
+('O Conde de Monte Cristo', 'Alexandre Dumas', 'Penguin Classics', '1844', '978-0140449266', 5, 5, 110.00, 'Disponível'),
+('Orgulho e Preconceito', 'Jane Austen', 'Penguin Classics', '1813', '978-0141439518', 7, 7, 90.00, 'Disponível'),
+('Moby Dick', 'Herman Melville', 'Penguin Classics', '1851', '978-0142437247', 4, 4, 100.00, 'Disponível'),
+('Guerra e Paz', 'Liev Tolstói', 'Companhia das Letras', '1869', '978-8535922343', 3, 3, 130.00, 'Disponível');
+
+-- LIVRO -- INSIRA 10 LIVROS -- DADOS REAIS 
 INSERT INTO Livro (titulo, autor, editora, ano_publicacao, isbn, quant_total, quant_disponivel, valor_aquisicao, status_livro_emprestado)
 VALUES
-('Dom Casmurro', 'Machado de Assis', 'Editora A', '1899', '9781234567890', 10, 10, 29.90, 'disponível'),
-('O Alquimista', 'Paulo Coelho', 'Editora B', '1988', '9781234567891', 5, 5, 35.50, 'disponível'),
-('1984', 'George Orwell', 'Editora C', '1949', '9781234567892', 8, 8, 40.00, 'disponível'),
-('O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 'Editora D', '1943', '9781234567893', 15, 15, 25.00, 'disponível'),
-('A Revolução dos Bichos', 'George Orwell', 'Editora E', '1945', '9781234567894', 7, 7, 30.00, 'disponível'),
-('A Menina que Roubava Livros', 'Markus Zusak', 'Editora F', '2005', '9781234567895', 12, 12, 45.00, 'disponível'),
-('O Senhor dos Anéis', 'J.R.R. Tolkien', 'Editora G', '1954', '9781234567896', 6, 6, 55.00, 'disponível'),
-('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 'Editora H', '1997', '9781234567897', 9, 9, 38.00, 'disponível'),
-('Cem Anos de Solidão', 'Gabriel García Márquez', 'Editora I', '1967', '9781234567898', 10, 10, 42.00, 'disponível'),
-('O Hobbit', 'J.R.R. Tolkien', 'Editora J', '1937', '9781234567899', 5, 5, 33.00, 'disponível');
+('O Código Da Vinci', 'Dan Brown', 'Arqueiro', 2003, '978-8599296493', 10, 7, 50.00, 'indisponível'),
+('A Menina que Roubava Livros', 'Markus Zusak', 'Intrínseca', 2005, '978-8598078304', 8, 5, 45.00, 'indisponível'),
+('O Morro dos Ventos Uivantes', 'Emily Brontë', 'Penguin', 1847, '978-0141439556', 6, 4, 35.00, 'disponível'),
+('Jogos Vorazes', 'Suzanne Collins', 'Rocco', 2008, '978-0439023528', 12, 9, 60.00, 'indisponível'),
+('Percy Jackson e o Ladrão de Raios', 'Rick Riordan', 'Intrínseca', 2005, '978-1423103349', 10, 8, 40.00, 'disponível'),
+('O Alquimista', 'Paulo Coelho', 'HarperCollins', 1988, '978-0061122415', 9, 6, 55.00, 'indisponível'),
+('A Culpa é das Estrelas', 'John Green', 'Intrínseca', 2012, '978-0141345659', 8, 3, 30.00, 'disponível'),
+('O Apanhador no Campo de Centeio', 'J.D. Salinger', 'Penguin', 1951, '978-0316769488', 7, 5, 35.00, 'indisponível'),
+('Morte Súbita', 'J.K. Rowling', 'Nova Fronteira', 2012, '978-8535923212', 6, 4, 75.00, 'indisponível'),
+('Orgulho e Preconceito', 'Jane Austen', 'Penguin', 1813, '978-0141439518', 5, 2, 25.00, 'disponível');
 
 
--- INSERT INTO EMPRESTIMO (10 registros)
-INSERT INTO Emprestimo (id_aluno, id_livro, data_emprestimo, data_devolucao, status_emprestimo)
-VALUES
-(1, 1, '2024-10-01', '2024-10-15', 'devolvido'),
-(2, 2, '2024-10-02', NULL, 'em andamento'),
-(3, 3, '2024-10-03', NULL, 'em andamento'),
-(4, 4, '2024-10-04', '2024-10-18', 'devolvido'),
-(5, 5, '2024-10-05', NULL, 'em andamento'),
-(6, 6, '2024-10-06', '2024-10-20', 'devolvido'),
-(7, 7, '2024-10-07', NULL, 'em andamento'),
-(8, 8, '2024-10-08', '2024-10-22', 'devolvido'),
-(9, 9, '2024-10-09', NULL, 'em andamento'),
-(10, 10, '2024-10-10', '2024-10-24', 'devolvido');
+-- Inserindo Emprestimos
+INSERT INTO Emprestimo (id_aluno, id_livro, data_emprestimo, data_devolucao, status_emprestimo) 
+VALUES 
+(1, 2, '2024-09-01', '2024-09-15', 'Em andamento'),
+(2, 1, '2024-09-02', '2024-09-16', 'Em andamento'),
+(3, 5, '2024-09-03', '2024-09-17', 'Em andamento'),
+(5, 3, '2024-09-04', '2024-09-18', 'Em andamento'),
+(4, 6, '2024-09-05', '2024-09-19', 'Em andamento'),
+(6, 4, '2024-09-06', '2024-09-20', 'Em andamento'),
+(7, 8, '2024-09-07', '2024-09-21', 'Em andamento'),
+(8, 7, '2024-09-08', '2024-09-22', 'Em andamento'),
+(10, 9, '2024-09-09', '2024-09-23', 'Em andamento'),
+(9, 10, '2024-09-10', '2024-09-24', 'Em andamento'),
+(1, 10, '2024-09-11', '2024-09-25', 'Em andamento'),
+(2, 3, '2024-09-11', '2024-09-25', 'Em andamento'),
+(4, 5, '2024-09-11', '2024-09-25', 'Em andamento'),
+(6, 2, '2024-09-11', '2024-09-25', 'Em andamento');
 
-SELECT * FROM Aluno;
-SELECT * FROM Livro;
-SELECT * FROM Emprestimo;
+
+-- Inserindo Emprestimos -- 10 EMPRESTIMOS, não repetir em
+Aqui estão 10 novos exemplos de inserções para a tabela `Emprestimo`:
+INSERT INTO Emprestimo (id_aluno, id_livro, data_emprestimo, data_devolucao, status_emprestimo) 
+VALUES 
+(1, 2, '2024-09-01', '2024-09-15', 'Em andamento'),
+(2, 3, '2024-09-02', '2024-09-16', 'Em andamento'),
+(3, 4, '2024-09-03', '2024-09-17', 'Em andamento'),
+(4, 5, '2024-09-04', '2024-09-18', 'Em andamento'),
+(5, 6, '2024-09-05', '2024-09-19', 'Em andamento'),
+(6, 7, '2024-09-06', '2024-09-20', 'Em andamento'),
+(7, 8, '2024-09-07', '2024-09-21', 'Em andamento'),
+(8, 9, '2024-09-08', '2024-09-22', 'Em andamento'),
+(9, 10, '2024-09-09', '2024-09-23', 'Em andamento'),
+(10, 1, '2024-09-10', '2024-09-24', 'Em andamento');
