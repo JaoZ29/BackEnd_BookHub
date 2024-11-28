@@ -1,43 +1,40 @@
 import { DatabaseModel } from "./DatabaseModel";
 
-// armazenei o pool de conexões
 const database = new DatabaseModel().pool;
 
-/**
- * Classe que representa um Aluno.
+
+/** 
+ * Classe que representa um aluno
  */
 export class Aluno {
 
     /* Atributos */
     /* Identificador do aluno */
     private idAluno: number = 0;
-    /* ra do aluno */
-    private ra: number = 0;
-    /* nome do aluno */
+    /* RA do aluno */
+    private ra: string = "";
+    /* Nome do aluno */
     private nome: string;
-    /* sobrenome do carro */
+    /* Sobrenome do aluno */
     private sobrenome: string;
-    /* data de nascimento do aluno */
+    /* Data de nascimento do aluno */
     private dataNascimento: Date;
-    /* endereco do aluno*/
+    /* Endereço do aluno */
     private endereco: string;
-    /* email do aluno*/
+    /* Email do aluno */
     private email: string;
-    /* celular do aluno*/
+    /* Celular do aluno */
     private celular: string;
-
-
-
 
     /**
      * Construtor da classe Aluno
      * 
-     * @param nome Nome do Aluno
-     * @param sobrenome Sobrenome do Aluno
-     * @param dataNascimento Data de Nascimento do Aluno
-     * @param endereco Endereço do Aluno
-     * @param email email do Aluno
-     * @param celular celular do Aluno
+     * @param nome Nome do aluno
+     * @param sobrenome Sobrenome do aluno
+     * @param dataNascimento Data de nascimento do aluno
+     * @param endereco Endereço do aluno
+     * @param email Email do aluno
+     * @param celular Celular do aluno
      */
     constructor(
         nome: string,
@@ -69,36 +66,29 @@ export class Aluno {
      * @param idAluno novo identificador do aluno
      */
     public setIdAluno(idAluno: number): void {
-        this.idAluno = this.idAluno;
+        this.idAluno = idAluno;
     }
 
-
-
     /**
-         * Recupera o RA do aluno
-         * @returns o RA do aluno
-         */
-    public getRa(): number {
+     * Retorna o RA do aluno.
+     *
+     * @returns {string} O RA do aluno.
+     */
+    public getRa(): string {
         return this.ra;
     }
 
     /**
-     * Atribui um valor ao RA do aluno
-     * @param ra novo RA do aluno
+     * Define o RA do aluno.
+     * 
+     * @param ra - O RA do aluno a ser definido.
      */
-    public setRaAluno(raAluno: number): void {
-        this.ra = this.ra;
+    public setRa(ra: string): void {
+        this.ra = ra;
     }
 
-
-
-
-
-
-
-
     /**
-     * Retorna o nome do Aluno.
+     * Retorna o nome do aluno.
      *
      * @returns {string} O nome do aluno.
      */
@@ -108,17 +98,12 @@ export class Aluno {
 
     /**
      * Define o nome do aluno.
-     * 
-     * @param nome - Nome do aluno a ser definido.
+     *
+     * @param nome - O nome do aluno a ser definido.
      */
     public setNome(nome: string): void {
         this.nome = nome;
     }
-
-
-
-
-
 
     /**
      * Retorna o sobrenome do aluno.
@@ -132,15 +117,11 @@ export class Aluno {
     /**
      * Define o sobrenome do aluno.
      *
-     * @param sobrenome - O sobrenome do aluno.
+     * @param sobrenome - O sobrenome do aluno a ser definido.
      */
     public setSobrenome(sobrenome: string): void {
         this.sobrenome = sobrenome;
     }
-
-
-
-
 
     /**
      * Retorna a data de nascimento do aluno.
@@ -154,15 +135,11 @@ export class Aluno {
     /**
      * Define a data de nascimento do aluno.
      * 
-     * @param dataNascimento - O data de nascimento a ser definida para o aluno.
+     * @param dataNascimento - A nova data de nascimento do aluno.
      */
     public setDataNascimento(dataNascimento: Date): void {
         this.dataNascimento = dataNascimento;
     }
-
-
-
-
 
     /**
      * Retorna o endereço do aluno.
@@ -176,21 +153,17 @@ export class Aluno {
     /**
      * Define o endereço do aluno.
      * 
-     * @param endereco - O endereço do aluno.
+     * @param endereco - O novo endereço do aluno.
      */
     public setEndereco(endereco: string): void {
         this.endereco = endereco;
     }
 
-
-
-
-
     /**
- * Retorna o email do aluno.
- *
- * @returns {string} Email do aluno.
- */
+     * Retorna o email do aluno.
+     *
+     * @returns {string} O email do aluno.
+     */
     public getEmail(): string {
         return this.email;
     }
@@ -198,19 +171,17 @@ export class Aluno {
     /**
      * Define o email do aluno.
      * 
-     * @param email - O email do aluno.
+     * @param email - O novo email do aluno.
      */
     public setEmail(email: string): void {
         this.email = email;
     }
 
-
-
     /**
- * Retorna o celular do aluno.
- *
- * @returns {string} O celular por aluno.
- */
+     * Retorna o celular do aluno.
+     *
+     * @returns {string} O celular do aluno.
+     */
     public getCelular(): string {
         return this.celular;
     }
@@ -218,112 +189,88 @@ export class Aluno {
     /**
      * Define o celular do aluno.
      * 
-     * @param celular - O celular do Aluno.
+     * @param celular - O novo celular do aluno.
      */
     public setCelular(celular: string): void {
         this.celular = celular;
     }
 
-    
     /**
-     * Busca e retorna uma lista de carros do banco de dados.
-     * @returns Um array de objetos do tipo `Aluno` em caso de sucesso ou `null` se ocorrer um erro durante a consulta.
+     * Realiza a listagem de alunos no banco de dados.
      * 
-     * - A função realiza uma consulta SQL para obter todas as informações da tabela "aluno".
-     * - Os dados retornados do banco de dados são usados para instanciar objetos da classe ``.
-     * - Cada carro é adicionado a uma lista que será retornada ao final da execução.
-     * - Se houver falha na consulta ao banco, a função captura o erro, exibe uma mensagem no console e retorna `null`.
+     * Esta função consulta a tabela `aluno` e retorna uma lista de objetos do tipo `Aluno`. 
+     * Se houver um erro durante a consulta, a função retorna `null`.
+     * 
+     * @returns {Promise<Array<Aluno> | null>} - Um array de objetos do tipo `Aluno` em caso de sucesso ou `null` se ocorrer um erro.
      */
-    static async listagemAlunos(): Promise<Array<Aluno> | null> {
-        // objeto para armazenar a lista de alunos
+
+    
+
+    static async listarAlunos(): Promise<Array<Aluno> | null> {
         const listaDeAlunos: Array<Aluno> = [];
 
         try {
-            // query de consulta ao banco de dados
-            const querySelectAluno = `SELECT * FROM aluno;`;
-
-            // fazendo a consulta e guardando a resposta
+            const querySelectAluno = `SELECT * FROM aluno`;
             const respostaBD = await database.query(querySelectAluno);
 
-            // usando a resposta para instanciar um objeto do tipo aluno
-            respostaBD.rows.forEach((linha: any) => {
-                // instancia (cria) objeto aluno
+            respostaBD.rows.forEach((linha) => {
                 const novoAluno = new Aluno(
                     linha.nome,
                     linha.sobrenome,
-                    linha.dataNascimento,
+                    new Date(linha.data_nascimento),
                     linha.endereco,
                     linha.email,
                     linha.celular
                 );
 
-                // atribui o ID objeto
                 novoAluno.setIdAluno(linha.id_aluno);
+                novoAluno.setRa(linha.ra);
 
-                // adiciona o objeto na lista
                 listaDeAlunos.push(novoAluno);
             });
 
-            // retorna a lista de carros
             return listaDeAlunos;
         } catch (error) {
-            console.log('Erro ao buscar lista de alunos');
+            console.log('Erro ao buscar lista de alunos. Consulte os logs para mais detalhes.');
+            console.log(error);
             return null;
         }
     }
 
     /**
-     * Realiza o cadastro de um carro no banco de dados.
+     * Cadastra um novo aluno no banco de dados.
      * 
-     * Esta função recebe um objeto do tipo `Aluno` e insere seus dados (nome, sobrenome, dataNascimento, endereço, email e telefone)
-     * na tabela `Aluno` do banco de dados. O método retorna um valor booleano indicando se o cadastro 
-     * foi realizado com sucesso.
+     * Esta função recebe um objeto `Aluno`, extrai as informações relevantes e realiza uma operação de inserção (INSERT) na tabela `aluno`.
+     * Se o cadastro for bem-sucedido, a função retorna `true`, caso contrário, retorna `false`.
      * 
-     * @param {Aluno} aluno - Objeto contendo os dados do carro que será cadastrado. O objeto `Aluno`
-     *                        deve conter os métodos `getNome()`, `getSobrenome()`, `getDataNascimento()`, `getEmail()` e `getCelular()`
-     *                        que retornam os respectivos valores do aluno.
-     * @returns {Promise<boolean>} - Retorna `true` se o aluno foi cadastrado com sucesso e `false` caso contrário.
-     *                               Em caso de erro durante o processo, a função trata o erro e retorna `false`.
+     * @param {Aluno} aluno - Objeto contendo os dados do aluno a ser cadastrado.
      * 
-     * @throws {Error} - Se ocorrer algum erro durante a execução do cadastro, uma mensagem de erro é exibida
-     *                   no console junto com os detalhes do erro.
+     * @returns {Promise<boolean>} - Retorna `true` se o cadastro foi realizado com sucesso, ou `false` se ocorreu um erro.
      */
-    static async cadastroAluno(aluno: Aluno): Promise<boolean> {
+    static async cadastrarAluno(aluno: Aluno): Promise<boolean> {
         try {
-            // query para fazer insert de um aluno no banco de dados
             const queryInsertAluno = `INSERT INTO aluno (nome, sobrenome, data_nascimento, endereco, email, celular)
-                                        VALUES
-                                        ('${aluno.getNome()}', 
-                                        '${aluno.getSobrenome()}', 
-                                        '${aluno.getDataNascimento()}', 
-                                        '${aluno.getEndereco()}',
-                                        '${aluno.getEmail()}',
-                                        '${aluno.getCelular()}')
-                                        RETURNING id_aluno;`;
+                                      VALUES
+                                      ('${aluno.getNome()}',
+                                       '${aluno.getSobrenome()}',
+                                       '${aluno.getDataNascimento()}',
+                                       '${aluno.getEndereco()}',
+                                       '${aluno.getEmail()}',
+                                       '${aluno.getCelular()}')
+                                      RETURNING id_aluno;`;
 
-            console.log(queryInsertAluno);
-
-            // executa a query no banco e armazena a resposta
             const respostaBD = await database.query(queryInsertAluno);
 
-            // verifica se a quantidade de linhas modificadas é diferente de 0
             if (respostaBD.rowCount != 0) {
-                console.log(`Aluno cadastrado com sucesso! ID do aluno: ${respostaBD.rows[0].id_aluno}`);
-                // true significa que o cadastro foi feito
+                console.log(`Aluno cadastrado com sucesso. ID do aluno: ${respostaBD.rows[0].id_aluno}`);
                 return true;
             }
-            // false significa que o cadastro NÃO foi feito.
-            return false;
 
-            // tratando o erro
+            return false;
         } catch (error) {
-            // imprime outra mensagem junto com o erro
-            console.log('Erro ao cadastrar o aluno. Verifique os logs para mais detalhes.');
-            // imprime o erro no console
+            console.log('Erro ao cadastrar o aluno. Consulte os logs para mais detalhes.');
             console.log(error);
-            // retorno um valor falso
             return false;
         }
     }
 }
-
