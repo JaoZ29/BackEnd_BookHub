@@ -310,7 +310,7 @@ static async cadastroLivro(livro: Livro): Promise<boolean> {
 
         // verifica se a quantidade de linhas modificadas é diferente de 0
         if (respostaBD.rowCount != 0) {
-            console.log(`Livro cadastrado com sucesso! ID do carro: ${respostaBD.rows[0].id_livro}`);
+            console.log(`Livro cadastrado com sucesso! ID do livro: ${respostaBD.rows[0].id_livro}`);
             // true significa que o cadastro foi feito
             return true;
         }
@@ -327,4 +327,64 @@ static async cadastroLivro(livro: Livro): Promise<boolean> {
         return false;
     }
 }
+
+static async removerLivro(idLivro: number): Promise<boolean> {
+    try {
+        // query para fazer delete de um Livro no banco de dados
+        const queryDeleteLivro = `DELETE FROM Livro WHERE id_livro = ${idLivro};`;
+
+        // executa a query no banco e armazena a resposta
+        const respostaBD = await database.query(queryDeleteLivro);
+        //Verifica se o numero de linhas alteradas é diferente de 0
+        if (respostaBD.rowCount != 0) {
+            console.log(`Livro removido com sucesso! ID do livro: ${idLivro}`);
+            //retorna true, indicando que o livro foi removido com sucesso
+            return true;
+        }
+        return false
+
+    } catch (error) {
+        console.log('Erro ao remover o Livro. Verifique os logs para mais detalhes.');
+        // imprime o erro no console da API
+        console.log(error);
+        // retorno um valor falso
+        return false;
+    }
+  }
+
+  static async atualizarLivro(Livro: Livro): Promise<boolean> {
+    try {
+        //query para atualizar o carro no banco de dados
+        const queryUpdateLivro = `UPDATE Livro SET 
+                                   titulo = '${Livro.titulo}',
+                                   autor = '${Livro.autor}',
+                                   ano_publicacao = '${Livro.anoPublicacao}',
+                                   editora = '${Livro.editora}',
+                                   isbn = '${Livro.isbn}',
+                                   quantTotal = '$'
+
+                                   modelo ='${carro.getModelo()}', 
+                                   marca = '${carro.getMarca()}',
+                                   ano = '${carro.getAno()}',
+                                   cor = '${carro.getCor()}',
+                                   WHERE id_carro= ${carro.getIdCarro()};`;
+        //executa a query no banco e armazena a resposta
+        const respostaBD = await database.query(queryUpdateCarro);
+        //Verifica se o numero de linhas alteradas é diferente de 0
+        if (respostaBD.rowCount != 0) {
+            console.log(`Carro atualizado com sucesso! ID do carro: ${carro.getIdCarro}`);
+            //retorna true, indicando que o carro foi atualizado com sucesso
+            return true;
+        }
+        return false
+    } catch (error) {
+        console.log('Erro ao atualizar o carro. Verifique os logs para mais detalhes.');
+        // imprime o erro no console da API
+        console.log(error);
+        // retorno um valor falso
+        return false;
+    }
 }
+
+}
+
